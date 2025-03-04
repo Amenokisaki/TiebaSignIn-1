@@ -19,14 +19,6 @@ jobs:
           distribution: 'zulu'
           java-version: '8'
           cache: 'maven'  # 使用官方推荐的 Maven 依赖缓存
-          
-      - name: Cache Maven dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2/repository  # Maven 本地缓存目录
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}  # 使用 pom.xml 作为缓存 key
-          restore-keys: |
-            ${{ runner.os }}-maven-
 
       - name: Build and execute
         env:
